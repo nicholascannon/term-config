@@ -16,7 +16,7 @@ noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
-nnoremap <silent> <C-p> :GFiles<CR>
+nnoremap <silent> <C-p> :GFiles --cached --exclude-standard --others<CR>
 nnoremap <C-n> :NERDTreeToggle<CR>
 
 " fix colours
