@@ -17,7 +17,16 @@ noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
 nnoremap <silent> <C-p> :GFiles --cached --exclude-standard --others<CR>
-nnoremap <C-n> :NERDTreeToggle<CR>
+
+function MyNerdToggle()
+    if &filetype == 'nerdtree'
+        :NERDTreeToggle
+    else
+        :NERDTreeFind
+    endif
+endfunction
+
+nnoremap <C-n> :call MyNerdToggle()<CR>
 
 " fix colours
 if has('termguicolors')
