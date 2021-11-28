@@ -1,8 +1,7 @@
 #!/bin/zsh
 
-echo "Installing env..."
+echo "Installing app configs..."
 
-#ln -s -f $PWD/.zshrc $HOME/.zshrc
 ln -s -f $PWD/.vimrc $HOME/.vimrc
 ln -s -f $PWD/.coc.vim $HOME/.coc.vim
 ln -s -f $PWD/.tmux.conf $HOME/.tmux.conf
