@@ -19,10 +19,10 @@ noremap <C-l> <C-w>l
 nnoremap <silent> <C-p> :GFiles --cached --exclude-standard --others<CR>
 
 function MyNerdToggle()
-    if &filetype == 'nerdtree'
-        :NERDTreeToggle
+    if @% == "" || &filetype == 'nerdtree'
+        NERDTreeToggle
     else
-        :NERDTreeFind
+        NERDTreeFind
     endif
 endfunction
 
@@ -72,6 +72,9 @@ hi Visual gui=reverse cterm=reverse term=reverse
 " Airline
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#whitespace#enabled = 0
+
+" File explorer
+let NERDTreeShowHidden = 1
 
 " Commands
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
