@@ -60,13 +60,15 @@ Plug 'tpope/vim-sleuth'
 " Theme stuff
 Plug 'sheerun/vim-polyglot'
 Plug 'joshdick/onedark.vim'
+Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
 
 " Theme
-set cursorline
 colo onedark
 hi Visual gui=reverse cterm=reverse term=reverse
+hi Normal guibg=NONE ctermbg=NONE
+let g:airline_theme='minimalist'
 
 " Airline
 let g:airline_powerline_fonts = 1
