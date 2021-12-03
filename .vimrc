@@ -7,7 +7,7 @@ set incsearch
 set background=dark
 set noswapfile
 set t_Co=256
-set scrolloff=5
+set scrolloff=10
 set cursorline
 
 syntax on
