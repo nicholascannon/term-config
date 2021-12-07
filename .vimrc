@@ -18,6 +18,7 @@ noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
 nnoremap <silent> <C-p> :GFiles --cached --exclude-standard --others<CR>
+nnoremap <leader>s :Ag
 
 function MyNerdToggle()
     if @% == "" || &filetype == 'nerdtree'
@@ -80,6 +81,9 @@ let NERDTreeShowHidden = 1
 " Commands
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 command! -nargs=0 ESLint :CocCommand eslint.executeAutofix
+
+" Overwrite Ag command to exclude matching filenames
+command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'right:50%'), <bang>0)
 
 let g:coc_global_extensions = ['coc-tsserver', 'coc-eslint', 'coc-json', 'coc-emmet', 'coc-yaml', 'coc-docker', 'coc-prettier', 'coc-pyright']
 
