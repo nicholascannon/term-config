@@ -69,7 +69,7 @@ call plug#end()
 let g:equinusocio_material_style = 'darker'
 colorscheme equinusocio_material
 hi Visual gui=reverse cterm=reverse term=reverse
-"hi Normal guibg=NONE ctermbg=NONE
+hi Normal guibg=NONE ctermbg=NONE
 
 " Airline
 let g:airline_powerline_fonts = 1
