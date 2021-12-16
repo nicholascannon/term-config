@@ -61,15 +61,14 @@ Plug 'tpope/vim-sleuth'
 
 " Theme stuff
 Plug 'sheerun/vim-polyglot'
-Plug 'yunlingz/equinusocio-material.vim'
+Plug 'joshdick/onedark.vim'
 
 call plug#end()
 
 " Theme
-let g:equinusocio_material_style = 'darker'
-colorscheme equinusocio_material
+colorscheme onedark
 hi Visual gui=reverse cterm=reverse term=reverse
-hi Normal guibg=NONE ctermbg=NONE
+"hi Normal guibg=NONE ctermbg=NONE
 
 " Airline
 let g:airline_powerline_fonts = 1
