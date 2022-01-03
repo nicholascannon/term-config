@@ -21,7 +21,9 @@ nnoremap <silent> <C-p> :GFiles --cached --exclude-standard --others<CR>
 nnoremap <leader>s :Ag
 
 function MyNerdToggle()
-    if @% == "" || &filetype == 'nerdtree'
+    if exists("g:NERDTree") && g:NERDTree.IsOpen()
+        NERDTreeClose
+    elseif @% == "" || &filetype == 'nerdtree'
         NERDTreeToggle
     else
         NERDTreeFind
