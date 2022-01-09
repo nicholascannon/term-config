@@ -95,4 +95,5 @@ source ~/.coc.vim
 
 " Undoing some stuff in coc.vim
 set signcolumn=yes
+nnoremap <leader>f :Prettier
 
