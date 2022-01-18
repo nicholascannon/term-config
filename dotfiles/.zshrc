@@ -101,10 +101,8 @@ source $ZSH/oh-my-zsh.sh
 unsetopt share_history
 
 VIRTUAL_ENV_DISABLE_PROMPT=
-eval "$(pyenv init -)"
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh" # This loads nvm
+eval "$(fnm env --use-on-cd)"
 
 # term function
 term () {
