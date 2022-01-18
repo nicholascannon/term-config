@@ -19,6 +19,7 @@ noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
 nnoremap <silent> <C-p> :GFiles --cached --exclude-standard --others<CR>
 nnoremap <leader>s :Ag
+nnoremap <leader>g :Git
 
 function MyNerdToggle()
     if exists("g:NERDTree") && g:NERDTree.IsOpen()
