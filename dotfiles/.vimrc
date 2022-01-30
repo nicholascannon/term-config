@@ -9,6 +9,7 @@ set noswapfile
 set t_Co=256
 set scrolloff=20
 set cursorline
+set backspace=2
 
 syntax on
 

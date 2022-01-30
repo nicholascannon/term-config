@@ -4,7 +4,7 @@ My terminal configuration files.
 
 ## Installation
 
-Run `install-shell.sh` script to symlink .zshrc file.
+Run `install-shell.sh` **once** to setup ZSH.
 
 Run `install-apps.sh` script to symlink app rc files (vim, tmux etc).
 
