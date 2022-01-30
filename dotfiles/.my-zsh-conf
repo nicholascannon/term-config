@@ -1,0 +1,32 @@
+plugins=(git docker aws vi-mode)
+
+unsetopt share_history
+
+VIRTUAL_ENV_DISABLE_PROMPT=
+
+eval "$(fnm env --use-on-cd)"
+
+# term function
+term () {
+    if [[ $1 == "" ]]; then
+        osascript -e 'tell app "Terminal" to do script "cd '$PWD'"'
+    else
+        osascript -e 'tell app "Terminal" to do script "cd '$PWD'/'$1'"'
+    fi
+}
+
+# Aliases
+alias c="clear"
+alias tmux="tmux -2"
+
+# Git aliases
+alias gaa="git add ."
+alias gs="git status"
+alias gb="git branch"
+alias gc="git checkout"
+alias gcm="git checkout master || git checkout main"
+alias gl="git log --all --graph --decorate --oneline"
+
+# load config that is private to current device (secrets etc)
+source ~/.private-shell-conf
+
