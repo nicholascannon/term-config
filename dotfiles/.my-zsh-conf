@@ -25,6 +25,7 @@ alias gs="git status"
 alias gb="git branch"
 alias gc="git checkout"
 alias gcm="git checkout master || git checkout main"
+alias gpum="git pull upstream master || git pull upstream main"
 alias gl="git log --all --graph --decorate --oneline"
 
 # load config that is private to current device (secrets etc)
