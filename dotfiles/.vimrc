@@ -6,7 +6,6 @@ set hlsearch
 set incsearch
 set background=dark
 set noswapfile
-set t_Co=256
 set scrolloff=20
 set cursorline
 set backspace=2
