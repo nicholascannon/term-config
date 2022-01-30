@@ -46,7 +46,6 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
-"" Editor utils
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'airblade/vim-gitgutter'
 Plug 'preservim/nerdcommenter'
@@ -54,16 +53,8 @@ Plug 'preservim/nerdtree'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'vim-airline/vim-airline'
-Plug 'jiangmiao/auto-pairs'
-
-" Git integration
 Plug 'tpope/vim-fugitive'
-
-" Auto detect indents
 Plug 'tpope/vim-sleuth'
-
-" Theme stuff
-Plug 'sheerun/vim-polyglot'
 Plug 'yunlingz/equinusocio-material.vim'
 
 call plug#end()
@@ -71,8 +62,6 @@ call plug#end()
 " Theme
 let g:equinusocio_material_style = 'darker'
 colorscheme equinusocio_material
-"hi Visual gui=reverse cterm=reverse term=reverse
-"hi Normal guibg=NONE ctermbg=NONE
 
 " Airline
 let g:airline_powerline_fonts = 1
@@ -88,7 +77,15 @@ command! -nargs=0 ESLint :CocCommand eslint.executeAutofix
 " Overwrite Ag command to exclude matching filenames
 command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'right:50%'), <bang>0)
 
-let g:coc_global_extensions = ['coc-tsserver', 'coc-eslint', 'coc-json', 'coc-emmet', 'coc-yaml', 'coc-docker', 'coc-prettier', 'coc-pyright']
+let g:coc_global_extensions = [
+      \'coc-tsserver',
+      \'coc-eslint',
+      \'coc-json',
+      \'coc-emmet',
+      \'coc-yaml',
+      \'coc-docker',
+      \'coc-prettier',
+      \'coc-pyright']
 
 " recommended settings for coc
 " https://github.com/neoclide/coc.nvim#example-vim-configuration
