@@ -4,6 +4,8 @@
 <dict>
 	<key>AdjustWindowForFontSizeChange</key>
 	<false/>
+	<key>AllowClipboardAccess</key>
+	<true/>
 	<key>Default Bookmark Guid</key>
 	<string>9C0FB344-4C64-4EA9-8BC4-136CAAB5ECC9</string>
 	<key>HapticFeedbackForEsc</key>
