@@ -56,6 +56,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sleuth'
 Plug 'yunlingz/equinusocio-material.vim'
+Plug 'sheerun/vim-polyglot'
 
 call plug#end()
 
@@ -69,6 +70,7 @@ let g:airline#extensions#whitespace#enabled = 0
 
 " File explorer
 let NERDTreeShowHidden = 1
+let NERDTreeWinSize = 50
 
 " Commands
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
