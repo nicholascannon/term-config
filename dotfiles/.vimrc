@@ -9,6 +9,8 @@ set noswapfile
 set scrolloff=20
 set cursorline
 set backspace=2
+set tabstop=4
+set expandtab
 
 syntax on
 
