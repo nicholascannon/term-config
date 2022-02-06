@@ -1,4 +1,5 @@
-plugins=(git docker aws vi-mode)
+# git already installed
+plugins+=(docker aws vi-mode)
 
 unsetopt share_history
 
@@ -31,3 +32,4 @@ alias gl="git log --all --graph --decorate --oneline"
 # load config that is private to current device (secrets etc)
 source ~/.private-shell-conf
 
+bindkey -v # make vi-mode plugin work properly
