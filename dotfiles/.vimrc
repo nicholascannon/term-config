@@ -74,6 +74,9 @@ Plug 'sheerun/vim-polyglot'
 " Colour theme
 Plug 'yunlingz/equinusocio-material.vim'
 
+" Commenting plugin
+Plug 'tpope/vim-commentary'
+
 call plug#end()
 
 " Git
