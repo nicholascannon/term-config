@@ -40,12 +40,6 @@ if has('termguicolors')
   set termguicolors
 endif
 
-" Fix italics in Vim
-if !has('nvim')
-  let &t_ZH="\e[3m"
-  let &t_ZR="\e[23m"
-endif
-
 call plug#begin('~/.vim/plugged')
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -89,13 +83,13 @@ let g:coc_global_extensions = [
       \'coc-yaml',
       \'coc-docker',
       \'coc-prettier',
-      \'coc-pyright']
+      \'coc-go']
 
 " recommended settings for coc
 " https://github.com/neoclide/coc.nvim#example-vim-configuration
 source ~/.coc.vim
 
-" Undoing some stuff in coc.vim
+" Undoing some stuff in .coc.vim
 set signcolumn=yes
 nnoremap <leader>f :Format
 
