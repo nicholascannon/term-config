@@ -1,60 +1,92 @@
-set number
-set relativenumber
-set ttyfast
-set autoindent
-set hlsearch
-set incsearch
-set background=dark
-set noswapfile
-set scrolloff=20
-set cursorline
-set backspace=2
-set tabstop=4
-set expandtab
-
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Editor Settings
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 syntax on
 
-" Re-maps
+" Line numbers
+set number
+set relativenumber
+
+" Use a fast tty connection
+set ttyfast
+
+set autoindent
+
+" Highlight + incremental search
+set hlsearch
+set incsearch
+
+" Cursor
+set cursorline
+set scrolloff=20
+
+" Tabs and backspace settings
+set backspace=2
+set softtabstop=2
+set shiftwidth=2
+set expandtab
+
+set termguicolors
+set background=dark
+
+" Dont create swap files for changed files
+set noswapfile
+
+" Dont wrap lines
+set nowrap
+
+" Use hjkl to move between vim panes
 noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
-nnoremap <silent> <C-p> :GFiles --cached --exclude-standard --others<CR>
-nnoremap <leader>s :Ag
-nnoremap <leader>g :Git
 
-function MyNerdToggle()
-    if exists("g:NERDTree") && g:NERDTree.IsOpen()
-        NERDTreeClose
-    elseif @% == "" || &filetype == 'nerdtree'
-        NERDTreeToggle
-    else
-        NERDTreeFind
-    endif
-endfunction
-
-nnoremap <C-n> :call MyNerdToggle()<CR>
-
-" fix colours
-if has('termguicolors')
-  set termguicolors
-endif
-
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plugins and Plugin Config
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.vim/plugged')
 
+" Language server plugin
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" Git diffs in sign column
 Plug 'airblade/vim-gitgutter'
-Plug 'preservim/nerdcommenter'
+
+" File explorer
 Plug 'preservim/nerdtree'
+
+" Fuzzy finder + search
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+
+" Status line plugin
 Plug 'vim-airline/vim-airline'
+
+" Git integration
 Plug 'tpope/vim-fugitive'
+
+" Automatically adjust tabsize based on file
 Plug 'tpope/vim-sleuth'
-Plug 'yunlingz/equinusocio-material.vim'
+
+" Collection of language packs
 Plug 'sheerun/vim-polyglot'
 
+" Colour theme
+Plug 'yunlingz/equinusocio-material.vim'
+
 call plug#end()
+
+" Git
+nnoremap <leader>g :Git
+
+" Fuzzy finder
+nnoremap <silent> <C-p> :GFiles --cached --exclude-standard --others<CR>
+
+" Search
+nnoremap <leader>s :Ag
+
+" Overwrite Ag command to exclude matching filenames
+command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'right:50%'), <bang>0)
 
 " Theme
 let g:equinusocio_material_style = 'darker'
@@ -64,17 +96,26 @@ colorscheme equinusocio_material
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#whitespace#enabled = 0
 
-" File explorer
+" File tree
 let NERDTreeShowHidden = 1
 let NERDTreeWinSize = 50
 
-" Commands
-command! -nargs=0 Prettier :CocCommand prettier.formatFile
+" File tree toggle
+function MyNerdToggle()
+    if exists("g:NERDTree") && g:NERDTree.IsOpen()
+        NERDTreeClose
+    elseif @% == "" || &filetype == 'nerdtree'
+        NERDTreeToggle
+    else
+        NERDTreeFind
+    endif
+endfunction
+nnoremap <C-n> :call MyNerdToggle()<CR>
+
+" Linting command
 command! -nargs=0 ESLint :CocCommand eslint.executeAutofix
 
-" Overwrite Ag command to exclude matching filenames
-command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'right:50%'), <bang>0)
-
+" COC language extensions
 let g:coc_global_extensions = [
       \'coc-tsserver',
       \'coc-eslint',
@@ -85,11 +126,14 @@ let g:coc_global_extensions = [
       \'coc-prettier',
       \'coc-go']
 
-" recommended settings for coc
+" Recommended settings for coc
 " https://github.com/neoclide/coc.nvim#example-vim-configuration
 source ~/.coc.vim
 
-" Undoing some stuff in .coc.vim
-set signcolumn=yes
-nnoremap <leader>f :Format
+" Note: Stuff below this line has to be after .coc.vim
 
+" Show sign column for git gutter symbols
+set signcolumn=yes
+
+" Format entire file with configured COC formatter
+nnoremap <leader>f :Format
