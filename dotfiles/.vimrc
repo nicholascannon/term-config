@@ -3,14 +3,14 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 syntax on
 
+set background=dark
+
 " Line numbers
 set number
 set relativenumber
 
 " Use a fast tty connection
 set ttyfast
-
-set autoindent
 
 " Highlight + incremental search
 set hlsearch
@@ -20,14 +20,14 @@ set incsearch
 set cursorline
 set scrolloff=20
 
-" Tabs and backspace settings
-set backspace=2
-set softtabstop=2
-set shiftwidth=2
+" Set default tab size to 2
+set tabstop=2
+
+" Replace tabs with spaces
 set expandtab
 
+" Use 24bit colour
 set termguicolors
-set background=dark
 
 " Dont create swap files for changed files
 set noswapfile
@@ -79,7 +79,7 @@ Plug 'tpope/vim-commentary'
 
 call plug#end()
 
-" Git
+" Fugitive git integration
 nnoremap <leader>g :Git
 
 " Fuzzy finder
