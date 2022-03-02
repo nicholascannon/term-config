@@ -41,6 +41,15 @@ noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
 
+function ToggleMouse()
+  if &mouse == ""
+    set mouse=a
+  else
+    set mouse=""
+  endif
+endfunction
+nnoremap mm :call ToggleMouse()<CR>
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins and Plugin Config
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
