@@ -41,6 +41,7 @@ noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
 
+" Toggle mouse mode to enable click and scroll
 function ToggleMouse()
   if &mouse == ""
     set mouse=a
@@ -49,6 +50,29 @@ function ToggleMouse()
   endif
 endfunction
 nnoremap mm :call ToggleMouse()<CR>
+
+" Make Y behave like D and C
+nnoremap Y y$
+
+" Keep cursor centered when searching, scrolling, using J etc
+nnoremap n nzzzv
+nnoremap N Nzzzv
+nnoremap J mzJ`z
+
+" Undo break points (',', '.', '!', '?') not the whole thing just typed
+" <c-g> breaks the undo sequence and starts a new change
+inoremap , ,<c-g>u
+inoremap . .<c-g>u
+inoremap ! !<c-g>u
+inoremap ? ?<c-g>u
+
+" Moving text with all modes (visual, insert, normal)
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+inoremap <C-k> <esc>:m .-2<CR>==
+inoremap <C-j> <esc>:m .+1<CR>==
+nnoremap <leader>j :m .+2<CR>==
+nnoremap <leader>k :m .-2<CR>==
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins and Plugin Config
