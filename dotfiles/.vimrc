@@ -5,6 +5,8 @@ syntax on
 
 set background=dark
 
+" Theme
+colo peachpuff
 hi clear SignColumn 
 
 " Line numbers
