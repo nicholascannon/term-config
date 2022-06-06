@@ -5,10 +5,6 @@ syntax on
 
 set background=dark
 
-" Theme
-colo peachpuff
-hi clear SignColumn 
-
 " Line numbers
 set number
 set relativenumber
@@ -29,6 +25,9 @@ set tabstop=2
 
 " Replace tabs with spaces
 set expandtab
+
+" Use 24bit colour
+set termguicolors
 
 " Dont create swap files for changed files
 set noswapfile
@@ -125,7 +124,12 @@ nnoremap <leader>s :Ag
 " Overwrite Ag command to exclude matching filenames
 command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'right:50%'), <bang>0)
 
+" Theme
+let g:equinusocio_material_style = 'darker'
+colorscheme equinusocio_material
+
 " Airline
+let g:airline_powerline_fonts = 1
 let g:airline#extensions#whitespace#enabled = 0
 
 " File tree
@@ -162,13 +166,10 @@ let g:coc_global_extensions = [
 " https://github.com/neoclide/coc.nvim#example-vim-configuration
 source ~/.coc.vim
 
-" NOTE: Stuff below this line has to be after .coc.vim
+" Note: Stuff below this line has to be after .coc.vim
 
 " Show sign column for git gutter symbols
 set signcolumn=yes
-
-" Need this again because coc settings change this
-hi clear SignColumn 
 
 " Format entire file with configured COC formatter
 nnoremap <leader>f :Format
