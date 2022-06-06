@@ -172,6 +172,3 @@ hi clear SignColumn
 
 " Format entire file with configured COC formatter
 nnoremap <leader>f :Format
-
-" Change coc floating window colour to grey
-hi CocFloating ctermbg=235
