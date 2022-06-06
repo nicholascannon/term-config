@@ -93,7 +93,6 @@ Plug 'junegunn/fzf.vim'
 
 " Status line plugin
 Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 
 " Git integration
 Plug 'tpope/vim-fugitive'
@@ -126,7 +125,6 @@ command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, fzf#vim#with_preview({'opti
 
 " Airline
 let g:airline#extensions#whitespace#enabled = 0
-let g:airline_theme='minimalist'
 
 " File tree
 let NERDTreeShowHidden = 1
