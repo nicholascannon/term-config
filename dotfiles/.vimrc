@@ -26,9 +26,6 @@ set tabstop=2
 " Replace tabs with spaces
 set expandtab
 
-" Use 24bit colour
-set termguicolors
-
 " Dont create swap files for changed files
 set noswapfile
 
@@ -124,10 +121,6 @@ nnoremap <leader>s :Ag
 " Overwrite Ag command to exclude matching filenames
 command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'right:50%'), <bang>0)
 
-" Theme
-let g:equinusocio_material_style = 'darker'
-colorscheme equinusocio_material
-
 " Airline
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#whitespace#enabled = 0
@@ -170,6 +163,7 @@ source ~/.coc.vim
 
 " Show sign column for git gutter symbols
 set signcolumn=yes
+hi clear SignColumn
 
 " Format entire file with configured COC formatter
 nnoremap <leader>f :Format
