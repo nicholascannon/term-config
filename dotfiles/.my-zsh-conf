@@ -8,11 +8,23 @@ VIRTUAL_ENV_DISABLE_PROMPT=
 eval "$(fnm env --use-on-cd)"
 
 # term function
-term () {
+iterm () {
     if [[ $1 == "" ]]; then
-        osascript -e 'tell app "Terminal" to do script "cd '$PWD'"'
+        osascript -e '
+        tell application "iTerm2"
+            set newWindow to (create window with default profile)
+            tell current session of newWindow
+                write text "cd '$PWD'"
+            end tell
+        end tell'
     else
-        osascript -e 'tell app "Terminal" to do script "cd '$PWD'/'$1'"'
+        osascript -e '
+        tell application "iTerm2"
+            set newWindow to (create window with default profile)
+            tell current session of newWindow
+                write text "cd '$PWD'/'$1'"
+            end tell
+        end tell'
     fi
 }
 
