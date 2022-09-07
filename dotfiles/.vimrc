@@ -1,9 +1,12 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Editor Settings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set background=dark
+
 syntax on
 
-set background=dark
+" use true colors
+set termguicolors
 
 " Line numbers
 set number
@@ -108,6 +111,9 @@ Plug 'yunlingz/equinusocio-material.vim'
 Plug 'tpope/vim-commentary'
 
 call plug#end()
+
+" Theme
+colorscheme equinusocio_material
 
 " Fugitive git integration
 nnoremap <leader>g :Git
