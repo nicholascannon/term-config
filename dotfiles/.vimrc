@@ -104,16 +104,10 @@ Plug 'tpope/vim-sleuth'
 " Collection of language packs
 Plug 'sheerun/vim-polyglot'
 
-" Colour theme
-Plug 'yunlingz/equinusocio-material.vim'
-
 " Commenting plugin
 Plug 'tpope/vim-commentary'
 
 call plug#end()
-
-" Theme
-colorscheme equinusocio_material
 
 " Fugitive git integration
 nnoremap <leader>g :Git
@@ -128,7 +122,6 @@ nnoremap <leader>s :Ag
 command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'right:50%'), <bang>0)
 
 " Airline
-let g:airline_powerline_fonts = 1
 let g:airline#extensions#whitespace#enabled = 0
 
 " File tree
